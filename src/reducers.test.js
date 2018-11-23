@@ -1,6 +1,11 @@
 import { groceries } from './reducers';
 import Immutable from 'immutable';
-import { ADD_GROCERY_ITEM, START_EDIT_GROCERY_ITEM, STOP_EDIT_GROCERY_ITEM } from './actions';
+import {
+  ADD_GROCERY_ITEM,
+  START_EDIT_GROCERY_ITEM,
+  STOP_EDIT_GROCERY_ITEM,
+  DELETE_GROCERY_ITEM,
+} from './actions';
 
 describe('test reducers', () => {
   it('returns default State', () => {
@@ -45,7 +50,7 @@ describe('test reducers', () => {
 
   describe('test START_EDIT_GROCERY_ITEM case', () => {
     it('returns item in editMode', () => {
-      const action = { id: '1', type: START_EDIT_GROCERY_ITEM };
+      const action = { itemID: '1', type: START_EDIT_GROCERY_ITEM };
       const state = new Immutable.List([
         { checked: false, name: 'Apples', id: '1', editMode: false },
         { checked: false, name: 'Bananas', id: '2', editMode: false },
@@ -58,7 +63,7 @@ describe('test reducers', () => {
     });
 
     it('returns unchanged state if id is not found', () => {
-      const action = { id: '3', type: START_EDIT_GROCERY_ITEM };
+      const action = { itemID: '3', type: START_EDIT_GROCERY_ITEM };
       const state = new Immutable.List([
         { checked: false, name: 'Apples', id: '1', editMode: false },
         { checked: false, name: 'Bananas', id: '2', editMode: false },
@@ -75,30 +80,60 @@ describe('test reducers', () => {
     it('stops editMode for the selected item', () => {
       const action = {
         item: { checked: false, name: '2 red Apples', id: '1', editMode: false },
-        type: 'STOP_EDIT_GROCERY_ITEM',
+        type: STOP_EDIT_GROCERY_ITEM,
       };
+
+      const state = new Immutable.List([
+        { checked: false, name: 'Apples', id: '1', editMode: true },
+        { checked: false, name: 'Bananas', id: '2', editMode: false },
+      ]);
+
+      const result = new Immutable.List([
+        { checked: false, name: '2 red Apples', id: '1', editMode: false },
+        { checked: false, name: 'Bananas', id: '2', editMode: false },
+      ]);
+
+      expect(groceries(state, action)).toEqual(result);
+    });
+
+    it('returns unchanged state if id is not found', () => {
+      const action = { item: { id: '3' }, type: STOP_EDIT_GROCERY_ITEM };
       const state = new Immutable.List([
         { checked: false, name: 'Apples', id: '1', editMode: false },
         { checked: false, name: 'Bananas', id: '2', editMode: false },
       ]);
       const result = new Immutable.List([
-        { checked: false, name: '2 red Apples', id: '1', editMode: false },
+        { checked: false, name: 'Apples', id: '1', editMode: false },
         { checked: false, name: 'Bananas', id: '2', editMode: false },
       ]);
       expect(groceries(state, action)).toEqual(result);
     });
   });
 
-  it('returns unchanged state if id is not found', () => {
-    const action = { item: { id: '3' }, type: STOP_EDIT_GROCERY_ITEM };
-    const state = new Immutable.List([
-      { checked: false, name: 'Apples', id: '1', editMode: false },
-      { checked: false, name: 'Bananas', id: '2', editMode: false },
-    ]);
-    const result = new Immutable.List([
-      { checked: false, name: 'Apples', id: '1', editMode: false },
-      { checked: false, name: 'Bananas', id: '2', editMode: false },
-    ]);
-    expect(groceries(state, action)).toEqual(result);
+  describe('test DELETE_GROCERY_ITEM case', () => {
+    it('delete selected item', () => {
+      const action = { itemID: '1', type: DELETE_GROCERY_ITEM };
+      const state = new Immutable.List([
+        { checked: false, name: 'Apples', id: '1', editMode: false },
+        { checked: false, name: 'Bananas', id: '2', editMode: false },
+      ]);
+      const result = new Immutable.List([
+        { checked: false, name: 'Bananas', id: '2', editMode: false },
+      ]);
+      expect(groceries(state, action)).toEqual(result);
+    });
+
+    xit('returns unchanged state if id is not found', () => {
+      const action = { itemID: '3', type: DELETE_GROCERY_ITEM };
+      const state = new Immutable.List([
+        { checked: false, name: 'Apples', id: '1', editMode: false },
+        { checked: false, name: 'Bananas', id: '2', editMode: false },
+      ]);
+      const result = new Immutable.List([
+        { checked: false, name: 'Apples', id: '1', editMode: false },
+        { checked: false, name: 'Bananas', id: '2', editMode: false },
+      ]);
+      expect(groceries(state, action)).toEqual(result);
+    });
   });
 });
