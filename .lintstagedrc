@@ -1,9 +1,7 @@
 {
   "**/*.{js,jsx,css,scss,less}": [
     "yarn prettier --write",
+    "yarn eslint",
     "git add"
-  ],
-    "**/*.{js,jsx}":[
-      "yarn eslint"
   ]
 }
