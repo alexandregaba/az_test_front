@@ -21,7 +21,7 @@ class App extends Component {
       <div className="app">
         <h1>My groceries :</h1>
         <input type="text" onKeyPress={this.onKeyPress} placeholder="Add an item..." />
-        <ul>{groceries.map(item => <li>{item.name}</li>)}</ul>
+        <ul>{groceries.map((item, index) => <li key={index}>{item.name}</li>)}</ul>
       </div>
     );
   }
