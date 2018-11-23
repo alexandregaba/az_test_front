@@ -4,6 +4,6 @@
     "git add"
   ],
     "**/*.{js,jsx}":[
-      "yarn lint"
+      "yarn eslint"
   ]
 }
