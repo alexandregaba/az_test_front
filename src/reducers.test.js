@@ -1,5 +1,6 @@
 import { groceries } from './reducers';
 import Immutable from 'immutable';
+import { ADD_GROCERY_ITEM, START_EDIT_GROCERY_ITEM, STOP_EDIT_GROCERY_ITEM } from './actions';
 
 describe('test reducers', () => {
   it('returns default State', () => {
@@ -31,7 +32,7 @@ describe('test reducers', () => {
 
   describe('test ADD_GROCERY_ITEM case', () => {
     it('returns Intial State plus the item from action', () => {
-      const action = { item: { checked: false, name: 'Oranges' }, type: 'ADD_GROCERY_ITEM' };
+      const action = { item: { checked: false, name: 'Oranges' }, type: ADD_GROCERY_ITEM };
       const state = undefined;
       const result = new Immutable.List([
         { checked: false, name: 'Apples', id: 1, editMode: false },
@@ -44,7 +45,7 @@ describe('test reducers', () => {
 
   describe('test START_EDIT_GROCERY_ITEM case', () => {
     it('returns item in editMode', () => {
-      const action = { item: { id: 1 }, type: 'START_EDIT_GROCERY_ITEM' };
+      const action = { item: { id: 1 }, type: START_EDIT_GROCERY_ITEM };
       const state = new Immutable.List([
         { checked: false, name: 'Apples', id: 1, editMode: false },
         { checked: false, name: 'Bananas', id: 2, editMode: false },
@@ -57,7 +58,7 @@ describe('test reducers', () => {
     });
 
     it('returns unchanged state if id is not found', () => {
-      const action = { item: { id: 3 }, type: 'START_EDIT_GROCERY_ITEM' };
+      const action = { item: { id: 3 }, type: START_EDIT_GROCERY_ITEM };
       const state = new Immutable.List([
         { checked: false, name: 'Apples', id: 1, editMode: false },
         { checked: false, name: 'Bananas', id: 2, editMode: false },
@@ -89,7 +90,7 @@ describe('test reducers', () => {
   });
 
   it('returns unchanged state if id is not found', () => {
-    const action = { item: { id: 3 }, type: 'STOP_EDIT_GROCERY_ITEM' };
+    const action = { item: { id: 3 }, type: STOP_EDIT_GROCERY_ITEM };
     const state = new Immutable.List([
       { checked: false, name: 'Apples', id: 1, editMode: false },
       { checked: false, name: 'Bananas', id: 2, editMode: false },
