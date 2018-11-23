@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+
+import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
   const props = {
@@ -15,6 +16,6 @@ it('renders without crashing', () => {
       },
     ],
   };
-  const div = document.createElement('div');
-  ReactDOM.render(<App {...props} />, div);
+  const Component = shallow(<App {...props} />);
+  expect(Component).toMatchSnapshot();
 });

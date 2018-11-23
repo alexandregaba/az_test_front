@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="app"
+>
+  <h1>
+    My groceries :
+  </h1>
+  <input
+    onKeyPress={[Function]}
+    placeholder="Add an item..."
+    type="text"
+  />
+  <ul>
+    <li
+      key="0"
+    >
+      Apples
+    </li>
+    <li
+      key="1"
+    >
+      Bananas
+    </li>
+  </ul>
+</div>
+`;
