@@ -13,16 +13,22 @@ exports[`renders without crashing 1`] = `
     type="text"
   />
   <ul>
-    <li
+    <Item
+      checked={false}
+      editMode={false}
+      id="1"
       key="0"
-    >
-      Apples
-    </li>
-    <li
+      name="Apples"
+      startEditGroceryItem={[Function]}
+    />
+    <Item
+      checked={false}
+      editMode={false}
+      id="2"
       key="1"
-    >
-      Bananas
-    </li>
+      name="Oranges"
+      startEditGroceryItem={[Function]}
+    />
   </ul>
 </div>
 `;

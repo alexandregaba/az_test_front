@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 import { ADD_GROCERY_ITEM, START_EDIT_GROCERY_ITEM, STOP_EDIT_GROCERY_ITEM } from './actions';
 
 const initialState = new Immutable.List([
-  { checked: false, name: 'Apples', id: 1, editMode: false },
-  { checked: false, name: 'Bananas', id: 2, editMode: false },
+  { checked: false, name: 'Apples', id: '1', editMode: false },
+  { checked: false, name: 'Bananas', id: '2', editMode: false },
 ]);
 
 export function groceries(state = initialState, action) {
@@ -14,12 +14,14 @@ export function groceries(state = initialState, action) {
     }
     case START_EDIT_GROCERY_ITEM: {
       const newState = state.map(
-        item => (item.id === action.item.id ? { ...item, editMode: true } : item),
+        item => (item.id === action.id ? { ...item, editMode: true } : item),
       );
       return newState;
     }
     case STOP_EDIT_GROCERY_ITEM: {
-      const newState = state.map(item => (item.id === action.item.id ? action.item : item));
+      const newState = state.map(
+        item => (item.id === action.item.id ? { ...action.item, editMode: false } : item),
+      );
       return newState;
     }
     default:

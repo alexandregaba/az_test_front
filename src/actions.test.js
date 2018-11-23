@@ -14,8 +14,8 @@ describe('test actions', () => {
   });
 
   it('triggers START_EDIT_GROCERY_ITEM action', () => {
-    const item = 'test';
-    expect(startEditGroceryItem(item)).toEqual({ item: 'test', type: START_EDIT_GROCERY_ITEM });
+    const id = 1;
+    expect(startEditGroceryItem(id)).toEqual({ id: 1, type: START_EDIT_GROCERY_ITEM });
   });
 
   it('triggers STOP_EDIT_GROCERY_ITEM action', () => {

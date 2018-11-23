@@ -6,8 +6,8 @@ export function addGroceryItem(item) {
   return { type: ADD_GROCERY_ITEM, item };
 }
 
-export function startEditGroceryItem(item) {
-  return { type: START_EDIT_GROCERY_ITEM, item };
+export function startEditGroceryItem(id) {
+  return { type: START_EDIT_GROCERY_ITEM, id };
 }
 
 export function stopEditGroceryItem(item) {

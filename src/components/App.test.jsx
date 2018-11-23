@@ -9,10 +9,14 @@ it('renders without crashing', () => {
       {
         checked: false,
         name: 'Apples',
+        id: '1',
+        editMode: false,
       },
       {
         checked: false,
-        name: 'Bananas',
+        name: 'Oranges',
+        id: '2',
+        editMode: false,
       },
     ],
   };
