@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import { combineReducers } from 'redux';
-import { ADD_GROCERY_ITEM, START_EDIT_GROCERY_ITEM } from './actions';
+import { ADD_GROCERY_ITEM, START_EDIT_GROCERY_ITEM, STOP_EDIT_GROCERY_ITEM } from './actions';
 
 const initialState = new Immutable.List([
   { checked: false, name: 'Apples', id: 1, editMode: false },
@@ -16,6 +16,10 @@ export function groceries(state = initialState, action) {
       const newState = state.map(
         item => (item.id === action.item.id ? { ...item, editMode: true } : item),
       );
+      return newState;
+    }
+    case STOP_EDIT_GROCERY_ITEM: {
+      const newState = state.map(item => (item.id === action.item.id ? action.item : item));
       return newState;
     }
     default:
