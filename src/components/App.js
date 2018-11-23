@@ -7,6 +7,10 @@ class App extends Component {
     groceries: PropTypes.instanceOf(Immutable.List),
   };
 
+  static defaultProps = {
+    groceries: [],
+  };
+
   onKeyPress = event => {
     if (event.key === 'Enter') {
       this.props.addGroceryItem({ checked: false, name: event.target.value });

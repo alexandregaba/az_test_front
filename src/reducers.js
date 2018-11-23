@@ -7,7 +7,7 @@ const initialState = new Immutable.List([
   { checked: false, name: 'Bananas' },
 ]);
 
-function groceries(state = initialState, action) {
+export function groceries(state = initialState, action) {
   switch (action.type) {
     case ADD_GROCERY_ITEM:
       return state.push(action.item);
