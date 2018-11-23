@@ -5,6 +5,8 @@ import {
   START_EDIT_GROCERY_ITEM,
   stopEditGroceryItem,
   STOP_EDIT_GROCERY_ITEM,
+  deleteGroceryItem,
+  DELETE_GROCERY_ITEM,
 } from './actions';
 
 describe('test actions', () => {
@@ -14,12 +16,17 @@ describe('test actions', () => {
   });
 
   it('triggers START_EDIT_GROCERY_ITEM action', () => {
-    const id = 1;
-    expect(startEditGroceryItem(id)).toEqual({ id: 1, type: START_EDIT_GROCERY_ITEM });
+    const id = '1';
+    expect(startEditGroceryItem(id)).toEqual({ itemID: '1', type: START_EDIT_GROCERY_ITEM });
   });
 
   it('triggers STOP_EDIT_GROCERY_ITEM action', () => {
     const item = 'test';
     expect(stopEditGroceryItem(item)).toEqual({ item: 'test', type: STOP_EDIT_GROCERY_ITEM });
+  });
+
+  it('triggers DELETE_GROCERY_ITEM action', () => {
+    const id = '1';
+    expect(deleteGroceryItem(id)).toEqual({ itemID: '1', type: DELETE_GROCERY_ITEM });
   });
 });
