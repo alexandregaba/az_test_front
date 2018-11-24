@@ -10,7 +10,7 @@ import './index.css';
 
 const dataPersitenceService = new DataPersitenceService();
 const savedState = dataPersitenceService.getSavedState();
-const persistedState = { groceries: new Immutable.List(savedState.groceries) };
+const persistedState = savedState && { groceries: new Immutable.List(savedState.groceries) };
 const store = createStore(groceriesApp, persistedState);
 
 store.subscribe(() => {
