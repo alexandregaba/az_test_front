@@ -1,14 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`match snapshot 1`] = `
 <li>
+  <input
+    checked={false}
+    id="itemCheck"
+    onChange={[Function]}
+    type="checkbox"
+  />
   Apples
   <button
+    id="editButton"
     onClick={[Function]}
   >
     Edit
   </button>
   <button
+    id="deleteButton"
     onClick={[Function]}
   >
     Delete

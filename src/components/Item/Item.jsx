@@ -14,9 +14,10 @@ class Item extends Component {
   static propTypes = {
     name: PropTypes.string,
     id: PropTypes.string,
-    startEditGroceryItem: PropTypes.func,
     checked: PropTypes.bool,
     editMode: PropTypes.bool,
+    startEditGroceryItem: PropTypes.func,
+    stopEditGroceryItem: PropTypes.func,
   };
 
   static defaultProps = {
@@ -59,19 +60,27 @@ class Item extends Component {
     if (editMode) {
       return (
         <li>
-          <input type="checkbox" checked={checked} onChange={this.handleCheck} />
+          <input id="itemCheck" type="checkbox" checked={checked} onChange={this.handleCheck} />
           <input value={editInputValue} onChange={this.handleInputChange} />
-          <button onClick={this.handleStartEdit}>Save</button>
-          <button onClick={this.handleDeleteItem}>Delete</button>
+          <button id="editButton" onClick={this.handleStartEdit}>
+            Save
+          </button>
+          <button id="deleteButton" onClick={this.handleDeleteItem}>
+            Delete
+          </button>
         </li>
       );
     }
     return (
       <li>
-        <input type="checkbox" checked={checked} onChange={this.handleCheck} />
+        <input id="itemCheck" type="checkbox" checked={checked} onChange={this.handleCheck} />
         {name}
-        <button onClick={this.handleStartEdit}>{editMode ? 'Save' : 'Edit'}</button>
-        <button onClick={this.handleDeleteItem}>Delete</button>
+        <button id="editButton" onClick={this.handleStartEdit}>
+          {editMode ? 'Save' : 'Edit'}
+        </button>
+        <button id="deleteButton" onClick={this.handleDeleteItem}>
+          Delete
+        </button>
       </li>
     );
   }
