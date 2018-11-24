@@ -6,6 +6,7 @@ class Item extends Component {
     super(props);
     this.handleStartEdit = this.handleStartEdit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
     this.state = { editInputValue: this.props.name };
   }
 
@@ -43,6 +44,10 @@ class Item extends Component {
     this.setState({ editInputValue: event.target.value });
   }
 
+  handleDeleteItem() {
+    this.props.deleteGroceryItem(this.props.id);
+  }
+
   render() {
     const { name, editMode } = this.props;
     const { editInputValue } = this.state;
@@ -51,6 +56,7 @@ class Item extends Component {
         <li>
           <input value={editInputValue} onChange={this.handleInputChange} />
           <button onClick={this.handleStartEdit}>Save</button>
+          <button onClick={this.handleDeleteItem}>Delete</button>
         </li>
       );
     }
@@ -58,6 +64,7 @@ class Item extends Component {
       <li>
         {name}
         <button onClick={this.handleStartEdit}>{editMode ? 'Save' : 'Edit'}</button>
+        <button onClick={this.handleDeleteItem}>Delete</button>
       </li>
     );
   }

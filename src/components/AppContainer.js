@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 
-import { addGroceryItem, startEditGroceryItem, stopEditGroceryItem } from 'actions';
+import {
+  addGroceryItem,
+  startEditGroceryItem,
+  stopEditGroceryItem,
+  deleteGroceryItem,
+} from 'actions';
 import App from 'components/App';
 
 function mapStateToProps({ groceries }) {
@@ -12,6 +17,7 @@ function mapDispatchToProps(dispatch) {
     addGroceryItem: item => dispatch(addGroceryItem(item)),
     startEditGroceryItem: item => dispatch(startEditGroceryItem(item)),
     stopEditGroceryItem: item => dispatch(stopEditGroceryItem(item)),
+    deleteGroceryItem: item => dispatch(deleteGroceryItem(item)),
   };
 }
 

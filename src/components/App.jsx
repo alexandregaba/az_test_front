@@ -21,7 +21,7 @@ class App extends Component {
   };
 
   render() {
-    const { groceries, startEditGroceryItem, stopEditGroceryItem } = this.props;
+    const { groceries, startEditGroceryItem, stopEditGroceryItem, deleteGroceryItem } = this.props;
 
     return (
       <div className="app">
@@ -35,6 +35,7 @@ class App extends Component {
               editMode={item.editMode}
               startEditGroceryItem={startEditGroceryItem}
               stopEditGroceryItem={stopEditGroceryItem}
+              deleteGroceryItem={deleteGroceryItem}
             />
           ))}
         </ul>

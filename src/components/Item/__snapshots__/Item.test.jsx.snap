@@ -8,5 +8,10 @@ exports[`renders without crashing 1`] = `
   >
     Edit
   </button>
+  <button
+    onClick={[Function]}
+  >
+    Delete
+  </button>
 </li>
 `;
