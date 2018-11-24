@@ -5,6 +5,7 @@ import {
   START_EDIT_GROCERY_ITEM,
   STOP_EDIT_GROCERY_ITEM,
   DELETE_GROCERY_ITEM,
+  TOGGLE_CHECK_GROCERY_ITEM,
 } from './actions';
 
 const initialState = new Immutable.List([
@@ -31,6 +32,12 @@ export function groceries(state = initialState, action) {
     }
     case DELETE_GROCERY_ITEM: {
       const newState = state.filter(item => item.id !== action.itemID);
+      return newState;
+    }
+    case TOGGLE_CHECK_GROCERY_ITEM: {
+      const newState = state.map(
+        item => (item.id === action.itemID ? { ...item, checked: !item.checked } : item),
+      );
       return newState;
     }
     default:
