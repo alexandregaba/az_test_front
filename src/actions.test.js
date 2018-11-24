@@ -7,6 +7,8 @@ import {
   STOP_EDIT_GROCERY_ITEM,
   deleteGroceryItem,
   DELETE_GROCERY_ITEM,
+  toggleCheckGroceryItem,
+  TOGGLE_CHECK_GROCERY_ITEM,
 } from './actions';
 
 describe('test actions', () => {
@@ -28,5 +30,10 @@ describe('test actions', () => {
   it('triggers DELETE_GROCERY_ITEM action', () => {
     const id = '1';
     expect(deleteGroceryItem(id)).toEqual({ itemID: '1', type: DELETE_GROCERY_ITEM });
+  });
+
+  it('triggers TOGGLE_CHECK_GROCERY_ITEM action', () => {
+    const id = '1';
+    expect(toggleCheckGroceryItem(id)).toEqual({ itemID: '1', type: TOGGLE_CHECK_GROCERY_ITEM });
   });
 });
