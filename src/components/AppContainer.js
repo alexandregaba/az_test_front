@@ -5,6 +5,7 @@ import {
   startEditGroceryItem,
   stopEditGroceryItem,
   deleteGroceryItem,
+  toggleCheckGroceryItem,
 } from 'actions';
 import App from 'components/App';
 
@@ -18,6 +19,7 @@ function mapDispatchToProps(dispatch) {
     startEditGroceryItem: item => dispatch(startEditGroceryItem(item)),
     stopEditGroceryItem: item => dispatch(stopEditGroceryItem(item)),
     deleteGroceryItem: item => dispatch(deleteGroceryItem(item)),
+    toggleCheckGroceryItem: item => dispatch(toggleCheckGroceryItem(item)),
   };
 }
 

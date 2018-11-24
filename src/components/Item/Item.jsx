@@ -7,6 +7,7 @@ class Item extends Component {
     this.handleStartEdit = this.handleStartEdit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
     this.state = { editInputValue: this.props.name };
   }
 
@@ -48,12 +49,17 @@ class Item extends Component {
     this.props.deleteGroceryItem(this.props.id);
   }
 
+  handleCheck() {
+    this.props.toggleCheckGroceryItem(this.props.id);
+  }
+
   render() {
-    const { name, editMode } = this.props;
+    const { name, editMode, checked } = this.props;
     const { editInputValue } = this.state;
     if (editMode) {
       return (
         <li>
+          <input type="checkbox" checked={checked} onChange={this.handleCheck} />
           <input value={editInputValue} onChange={this.handleInputChange} />
           <button onClick={this.handleStartEdit}>Save</button>
           <button onClick={this.handleDeleteItem}>Delete</button>
@@ -62,6 +68,7 @@ class Item extends Component {
     }
     return (
       <li>
+        <input type="checkbox" checked={checked} onChange={this.handleCheck} />
         {name}
         <button onClick={this.handleStartEdit}>{editMode ? 'Save' : 'Edit'}</button>
         <button onClick={this.handleDeleteItem}>Delete</button>
