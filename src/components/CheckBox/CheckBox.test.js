@@ -4,11 +4,16 @@ import { shallow } from 'enzyme';
 
 const props = {
   checked: false,
-  handleCheck: jest.fn(),
+  onClick: jest.fn(),
 };
+
+it('matches snapshots', () => {
+  const Component = shallow(<Checkbox {...props} />);
+  expect(Component).toMatchSnapshot();
+});
 
 it('it triggers toggleCheckGroceryItem when itemCheck value is changed', () => {
   const Component = shallow(<Checkbox {...props} />);
-  Component.find('input.checkbox').simulate('change', { target: { checked: true } });
-  expect(props.handleCheck).toHaveBeenCalled();
+  Component.find('.check-box').simulate('click');
+  expect(props.onClick).toHaveBeenCalled();
 });
