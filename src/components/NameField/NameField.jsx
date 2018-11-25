@@ -25,7 +25,7 @@ const InnerSpan = styled.span`
   height: 30px;
 `;
 
-const NameField = ({ name, value, editMode, handleInputChange, ...props }) => {
+const NameField = ({ name, value, editMode, handleInputChange, onPressEnter, ...props }) => {
   if (editMode) {
     return (
       <EditField
@@ -33,6 +33,7 @@ const NameField = ({ name, value, editMode, handleInputChange, ...props }) => {
         ref={input => input && input.focus()}
         value={value}
         onChange={handleInputChange}
+        onKeyPress={onPressEnter}
         {...props}
       />
     );

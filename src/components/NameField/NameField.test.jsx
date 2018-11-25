@@ -8,6 +8,7 @@ const props = {
   editMode: false,
   checked: false,
   handleInputChange: jest.fn(),
+  onPressEnter: jest.fn(),
 };
 
 it('matches snapshot', () => {
@@ -24,6 +25,12 @@ it('render span or input depending of editMode', () => {
 
 it('use handleChange on changes', () => {
   const EditComponent = shallow(<NameField {...props} editMode />);
-  EditComponent.find('.edit-field').simulate('change', { target: { vale: 'Apple' } });
+  EditComponent.find('.edit-field').simulate('change', { target: { value: 'Apple' } });
   expect(props.handleInputChange).toHaveBeenCalled();
+});
+
+it('use onPressEnter on enter', () => {
+  const EditComponent = shallow(<NameField {...props} editMode />);
+  EditComponent.find('.edit-field').simulate('keypress', { key: 'enter' });
+  expect(props.onPressEnter).toHaveBeenCalled();
 });

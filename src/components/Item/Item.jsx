@@ -61,6 +61,12 @@ class Item extends Component {
     }
   }
 
+  onPressEnter = event => {
+    if (event.key === 'Enter') {
+      this.handleEdit();
+    }
+  };
+
   handleInputChange(event) {
     this.setState({ editInputValue: event.target.value });
   }
@@ -86,6 +92,7 @@ class Item extends Component {
             value={editInputValue}
             editMode={editMode}
             handleInputChange={this.handleInputChange}
+            onPressEnter={this.onPressEnter}
           />
         </Div>
         <Div reverse>

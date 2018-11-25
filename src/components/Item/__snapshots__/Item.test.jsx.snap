@@ -12,6 +12,7 @@ exports[`matches snapshot 1`] = `
       editMode={false}
       handleInputChange={[Function]}
       name="Apples"
+      onPressEnter={[Function]}
       value="Apples"
     />
   </styled.div>
