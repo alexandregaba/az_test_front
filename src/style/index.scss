@@ -1,0 +1,38 @@
+@import'./__reset.scss';
+
+body{
+  margin:40px auto;
+  max-width: 240px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+ line-height: 1.2;
+}
+
+li:first-child {
+  margin-top: 10px;
+}
+
+input {
+  line-height: inherit;
+  font-size: inherit;
+}
+
+input.add-item {
+  width: 100%;
+  background-color: inherit;
+  border-left:none;
+  border-right:none;
+  border-top:none;
+  border-bottom:solid #444 1px;
+  padding: 0 5px;
+
+  &:focus {
+    outline: 0;
+  }
+}

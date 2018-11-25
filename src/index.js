@@ -6,7 +6,7 @@ import groceriesApp from './reducers';
 import AppContainer from 'components/AppContainer';
 import DataPersitenceService from './services/persistState';
 import Immutable from 'immutable';
-import './index.css';
+import './style/index.scss';
 
 const dataPersitenceService = new DataPersitenceService();
 const savedState = dataPersitenceService.getSavedState();
