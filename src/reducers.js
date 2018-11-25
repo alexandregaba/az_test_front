@@ -19,14 +19,14 @@ export function groceries(state = initialState, action) {
       return new Immutable.List([...state, action.item]);
     }
     case START_EDIT_GROCERY_ITEM: {
-      const newState = state.map(
-        item => (item.id === action.itemID ? { ...item, editMode: true } : item),
+      const newState = state.map(item =>
+        item.id === action.itemID ? { ...item, editMode: true } : item,
       );
       return newState;
     }
     case STOP_EDIT_GROCERY_ITEM: {
-      const newState = state.map(
-        item => (item.id === action.item.id ? { ...action.item, editMode: false } : item),
+      const newState = state.map(item =>
+        item.id === action.item.id ? { ...action.item, editMode: false } : item,
       );
       return newState;
     }
@@ -35,8 +35,8 @@ export function groceries(state = initialState, action) {
       return newState;
     }
     case TOGGLE_CHECK_GROCERY_ITEM: {
-      const newState = state.map(
-        item => (item.id === action.itemID ? { ...item, checked: !item.checked } : item),
+      const newState = state.map(item =>
+        item.id === action.itemID ? { ...item, checked: !item.checked } : item,
       );
       return newState;
     }
