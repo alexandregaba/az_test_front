@@ -1,23 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`match snapshot 1`] = `
-<li>
-  <CheckBox
-    checked={false}
-    handleCheck={[Function]}
-  />
-  Apples
-  <button
-    id="editButton"
-    onClick={[Function]}
+exports[`matches snapshot 1`] = `
+<styled.li>
+  <styled.div>
+    <CheckBox
+      checked={false}
+      onClick={[Function]}
+    />
+    <NameField
+      checked={false}
+      editMode={false}
+      handleInputChange={[Function]}
+      name="Apples"
+      value="Apples"
+    />
+  </styled.div>
+  <styled.div
+    reverse={true}
   >
-    Edit
-  </button>
-  <button
-    id="deleteButton"
-    onClick={[Function]}
-  >
-    Delete
-  </button>
-</li>
+    <Button
+      editMode={false}
+      handleDelete={[Function]}
+      type="delete"
+    />
+    <Button
+      editMode={false}
+      handleEdit={[Function]}
+      type="edit"
+    />
+  </styled.div>
+</styled.li>
 `;

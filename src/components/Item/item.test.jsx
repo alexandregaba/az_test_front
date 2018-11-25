@@ -14,7 +14,7 @@ const props = {
   toggleCheckGroceryItem: jest.fn(),
 };
 
-it('match snapshot', () => {
+it('matches snapshot', () => {
   const props = {
     checked: false,
     name: 'Apples',
@@ -25,15 +25,15 @@ it('match snapshot', () => {
   expect(Component).toMatchSnapshot();
 });
 
-it('it triggers startEditGroceryItem when editButton is clicked', () => {
+it('triggers startEditGroceryItem', () => {
   const Component = shallow(<Item {...props} />);
-  Component.find('#editButton').simulate('click');
+  Component.instance().handleEdit();
   expect(props.startEditGroceryItem).toHaveBeenCalledWith('1');
 });
 
-it('it triggers stopEditGroceryItem when editButton is clicked in editMode', () => {
-  const Component = shallow(<Item {...props} editMode />);
-  Component.find('#editButton').simulate('click');
+it('triggers stopEditGroceryItem', () => {
+  const ComponentEditMode = shallow(<Item {...props} editMode />);
+  ComponentEditMode.instance().handleEdit();
   expect(props.stopEditGroceryItem).toHaveBeenCalledWith({
     checked: false,
     id: '1',
@@ -41,8 +41,14 @@ it('it triggers stopEditGroceryItem when editButton is clicked in editMode', () 
   });
 });
 
-it('it triggers deleteGroceryItem when deleteButton is clicked', () => {
+it('triggers deleteGroceryItem', () => {
   const Component = shallow(<Item {...props} />);
-  Component.find('#deleteButton').simulate('click');
+  Component.instance().handleDeleteItem();
   expect(props.deleteGroceryItem).toHaveBeenCalledWith('1');
+});
+
+it('triggers toggleCheckGroceryItem', () => {
+  const Component = shallow(<Item {...props} />);
+  Component.instance().handleCheck();
+  expect(props.toggleCheckGroceryItem).toHaveBeenCalledWith('1');
 });

@@ -32,7 +32,12 @@ class App extends Component {
     return (
       <div className="app">
         <h1>My groceries :</h1>
-        <input type="text" onKeyPress={this.onKeyPress} placeholder="Add an item..." />
+        <input
+          className="add-item"
+          type="text"
+          onKeyPress={this.onKeyPress}
+          placeholder="Add an item..."
+        />
         <ul>
           {groceries.map((item, index) => (
             <Item

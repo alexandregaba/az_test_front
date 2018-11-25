@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import CheckBox from '../CheckBox/CheckBox';
+import NameField from '../NameField/NameField';
+import Button from '../Button/Button';
+
+const Li = styled.li`
+  list-style-type: none;
+  width: 100%;
+  border-bottom: solid 1px gainsboro;
+  margin-bottom: 5px;
+`;
+
+const Div = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: ${props => (props.reverse ? 'row-reverse' : 'row')};
+`;
 
 class Item extends Component {
   constructor(props) {
     super(props);
-    this.handleStartEdit = this.handleStartEdit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
@@ -24,12 +41,13 @@ class Item extends Component {
   static defaultProps = {
     name: '',
     id: 1,
-    startEditGroceryItem: () => {},
     checked: false,
     editMode: false,
+    startEditGroceryItem: () => {},
+    stopEditGroceryItem: () => {},
   };
 
-  handleStartEdit() {
+  handleEdit() {
     if (!this.props.editMode) {
       this.props.startEditGroceryItem(this.props.id);
     } else {
@@ -58,31 +76,23 @@ class Item extends Component {
   render() {
     const { name, editMode, checked } = this.props;
     const { editInputValue } = this.state;
-    if (editMode) {
-      return (
-        <li>
-          <CheckBox checked={checked} handleCheck={this.handleCheck} />
-          <input value={editInputValue} onChange={this.handleInputChange} />
-          <button id="editButton" onClick={this.handleStartEdit}>
-            Save
-          </button>
-          <button id="deleteButton" onClick={this.handleDeleteItem}>
-            Delete
-          </button>
-        </li>
-      );
-    }
     return (
-      <li>
-        <CheckBox checked={checked} handleCheck={this.handleCheck} />
-        {name}
-        <button id="editButton" onClick={this.handleStartEdit}>
-          {editMode ? 'Save' : 'Edit'}
-        </button>
-        <button id="deleteButton" onClick={this.handleDeleteItem}>
-          Delete
-        </button>
-      </li>
+      <Li>
+        <Div>
+          <CheckBox checked={checked} onClick={this.handleCheck} />
+          <NameField
+            checked={checked}
+            name={name}
+            value={editInputValue}
+            editMode={editMode}
+            handleInputChange={this.handleInputChange}
+          />
+        </Div>
+        <Div reverse>
+          <Button type="delete" handleDelete={this.handleDeleteItem} editMode={editMode} />
+          <Button type="edit" handleEdit={this.handleEdit} editMode={editMode} />
+        </Div>
+      </Li>
     );
   }
 }

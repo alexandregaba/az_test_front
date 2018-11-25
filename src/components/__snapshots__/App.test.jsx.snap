@@ -8,6 +8,7 @@ exports[`renders without crashing 1`] = `
     My groceries :
   </h1>
   <input
+    className="add-item"
     onKeyPress={[Function]}
     placeholder="Add an item..."
     type="text"
@@ -20,6 +21,7 @@ exports[`renders without crashing 1`] = `
       key="0"
       name="Apples"
       startEditGroceryItem={[Function]}
+      stopEditGroceryItem={[Function]}
     />
     <Item
       checked={false}
@@ -28,6 +30,7 @@ exports[`renders without crashing 1`] = `
       key="1"
       name="Oranges"
       startEditGroceryItem={[Function]}
+      stopEditGroceryItem={[Function]}
     />
   </ul>
 </div>
