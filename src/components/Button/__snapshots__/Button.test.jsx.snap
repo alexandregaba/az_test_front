@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshots 1`] = `
+<Styled(styled.button)
+  className="editButton"
+  onClick={[MockFunction]}
+>
+  Edit
+</Styled(styled.button)>
+`;
+
+exports[`matches snapshots 2`] = `
+<Styled(styled.button)
+  className="editButton"
+  onClick={[MockFunction]}
+>
+  Delete
+</Styled(styled.button)>
+`;
+
+exports[`matches snapshots 3`] = `
+<Styled(styled.button)
+  className="editButton"
+  onClick={[MockFunction]}
+>
+  Save
+</Styled(styled.button)>
+`;
