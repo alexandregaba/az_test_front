@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CheckBox from '../CheckBox/CheckBox';
 
 class Item extends Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class Item extends Component {
     if (editMode) {
       return (
         <li>
-          <input id="itemCheck" type="checkbox" checked={checked} onChange={this.handleCheck} />
+          <CheckBox checked={checked} handleCheck={this.handleCheck} />
           <input value={editInputValue} onChange={this.handleInputChange} />
           <button id="editButton" onClick={this.handleStartEdit}>
             Save
@@ -73,7 +74,7 @@ class Item extends Component {
     }
     return (
       <li>
-        <input id="itemCheck" type="checkbox" checked={checked} onChange={this.handleCheck} />
+        <CheckBox checked={checked} handleCheck={this.handleCheck} />
         {name}
         <button id="editButton" onClick={this.handleStartEdit}>
           {editMode ? 'Save' : 'Edit'}

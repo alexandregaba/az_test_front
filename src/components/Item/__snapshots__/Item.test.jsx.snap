@@ -2,11 +2,9 @@
 
 exports[`match snapshot 1`] = `
 <li>
-  <input
+  <CheckBox
     checked={false}
-    id="itemCheck"
-    onChange={[Function]}
-    type="checkbox"
+    handleCheck={[Function]}
   />
   Apples
   <button

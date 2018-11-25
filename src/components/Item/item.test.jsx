@@ -42,13 +42,7 @@ it('it triggers stopEditGroceryItem when editButton is clicked in editMode', () 
 });
 
 it('it triggers deleteGroceryItem when deleteButton is clicked', () => {
-  const Component = shallow(<Item {...props} editMode />);
+  const Component = shallow(<Item {...props} />);
   Component.find('#deleteButton').simulate('click');
   expect(props.deleteGroceryItem).toHaveBeenCalledWith('1');
-});
-
-it('it triggers toggleCheckGroceryItem when itemCheck value is changed', () => {
-  const Component = shallow(<Item {...props} editMode />);
-  Component.find('#itemCheck').simulate('change', { target: { checked: true } });
-  expect(props.toggleCheckGroceryItem).toHaveBeenCalledWith('1');
 });
