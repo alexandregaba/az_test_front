@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const InnerButton = styled.button`
@@ -40,6 +41,13 @@ const Button = ({ type, editMode, handleEdit, handleDelete }) => {
       Delete
     </DeleteButton>
   );
+};
+
+Button.propTypes = {
+  type: PropTypes.string,
+  editMode: PropTypes.bool,
+  handleDelete: PropTypes.func,
+  handleEdit: PropTypes.func,
 };
 
 export default Button;
