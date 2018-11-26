@@ -1,11 +1,12 @@
 import React from 'react';
 import App from './App';
+import Immutable from 'immutable';
 
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
   const props = {
-    groceries: [
+    groceries: Immutable.List([
       {
         checked: false,
         name: 'Apples',
@@ -18,7 +19,7 @@ it('renders without crashing', () => {
         id: '2',
         editMode: false,
       },
-    ],
+    ]),
   };
   const Component = shallow(<App {...props} />);
   expect(Component).toMatchSnapshot();
