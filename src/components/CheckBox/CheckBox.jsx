@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const InnerInput = styled.div`
@@ -34,5 +35,10 @@ const InnerInput = styled.div`
 `;
 
 const CheckBox = props => <InnerInput {...props} className="check-box" type="checkbox" />;
+
+CheckBox.propTypes = {
+  checked: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default CheckBox;
