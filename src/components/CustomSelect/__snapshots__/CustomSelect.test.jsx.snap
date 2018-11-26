@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<styled.div
+  isOpened={false}
+>
+  <Styled(styled.div)
+    onClick={[MockFunction]}
+  >
+    All
+  </Styled(styled.div)>
+  <styled.div>
+    <styled.div
+      key="0"
+      onClick={[MockFunction]}
+      show={false}
+    >
+      All
+    </styled.div>
+    <styled.div
+      key="1"
+      onClick={[MockFunction]}
+      show={false}
+    >
+      Checked Only
+    </styled.div>
+    <styled.div
+      key="2"
+      onClick={[MockFunction]}
+      show={false}
+    >
+      Not checked Only
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`matches snapshot 2`] = `
+<styled.div
+  isOpened={true}
+>
+  <Styled(styled.div)
+    onClick={[MockFunction]}
+  >
+    All
+  </Styled(styled.div)>
+  <styled.div>
+    <styled.div
+      key="0"
+      onClick={[MockFunction]}
+      show={true}
+    >
+      All
+    </styled.div>
+    <styled.div
+      key="1"
+      onClick={[MockFunction]}
+      show={true}
+    >
+      Checked Only
+    </styled.div>
+    <styled.div
+      key="2"
+      onClick={[MockFunction]}
+      show={true}
+    >
+      Not checked Only
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
