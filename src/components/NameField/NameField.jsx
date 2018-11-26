@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const EditField = styled.input`
@@ -44,5 +46,12 @@ const NameField = ({ name, value, editMode, handleInputChange, onPressEnter, ...
     </InnerSpan>
   );
 };
-
+NameField.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
+  editMode: PropTypes.bool,
+  handleInputChange: PropTypes.func,
+  onPressEnter: PropTypes.func,
+};
 export default NameField;
