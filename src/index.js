@@ -4,9 +4,20 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import groceriesApp from './reducers';
 import AppContainer from 'components/AppContainer';
-import './index.css';
+import DataPersitenceService from './services/persistState';
+import Immutable from 'immutable';
+import './style/index.scss';
 
-const store = createStore(groceriesApp);
+const dataPersitenceService = new DataPersitenceService();
+const savedState = dataPersitenceService.getSavedState();
+const persistedState = savedState && { groceries: new Immutable.List(savedState.groceries) };
+const store = createStore(groceriesApp, persistedState);
+
+store.subscribe(() => {
+  dataPersitenceService.saveState({
+    groceries: store.getState().groceries,
+  });
+});
 
 ReactDOM.render(
   <Provider store={store}>

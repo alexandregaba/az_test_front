@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="app"
+>
+  <h1>
+    My groceries :
+  </h1>
+  <input
+    className="add-item"
+    onKeyPress={[Function]}
+    placeholder="Add an item..."
+    type="text"
+  />
+  <styled.div>
+    <label
+      htmlFor="filter"
+    >
+      Filter:
+    </label>
+    <CustomSelect
+      isOpened={false}
+      name="filter"
+      options={
+        Array [
+          Object {
+            "display": "All",
+            "isDefault": true,
+            "value": "",
+          },
+          Object {
+            "display": "Checked Only",
+            "value": "checked",
+          },
+          Object {
+            "display": "Not checked Only",
+            "value": "notChecked",
+          },
+        ]
+      }
+      selectMe={[Function]}
+      selected={
+        Object {
+          "display": "All",
+          "isDefault": true,
+          "value": "",
+        }
+      }
+      toggleSelectOpen={[Function]}
+    />
+  </styled.div>
+  <ul>
+    <Item
+      checked={false}
+      editMode={false}
+      id="1"
+      key="0"
+      name="Apples"
+      startEditGroceryItem={[Function]}
+      stopEditGroceryItem={[Function]}
+    />
+    <Item
+      checked={false}
+      editMode={false}
+      id="2"
+      key="1"
+      name="Oranges"
+      startEditGroceryItem={[Function]}
+      stopEditGroceryItem={[Function]}
+    />
+  </ul>
+</div>
+`;

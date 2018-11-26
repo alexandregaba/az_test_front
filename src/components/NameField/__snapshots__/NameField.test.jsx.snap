@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<styled.span
+  checked={false}
+  className="item-name"
+>
+  orange
+</styled.span>
+`;

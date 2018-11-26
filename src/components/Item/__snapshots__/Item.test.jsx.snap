@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<styled.li>
+  <styled.div>
+    <CheckBox
+      checked={false}
+      onClick={[Function]}
+    />
+    <NameField
+      checked={false}
+      editMode={false}
+      handleInputChange={[Function]}
+      name="Apples"
+      onPressEnter={[Function]}
+      value="Apples"
+    />
+  </styled.div>
+  <styled.div
+    reverse={true}
+  >
+    <Button
+      editMode={false}
+      handleDelete={[Function]}
+      type="delete"
+    />
+    <Button
+      editMode={false}
+      handleEdit={[Function]}
+      type="edit"
+    />
+  </styled.div>
+</styled.li>
+`;
