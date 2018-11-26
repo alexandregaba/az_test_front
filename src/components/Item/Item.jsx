@@ -36,6 +36,8 @@ class Item extends Component {
     editMode: PropTypes.bool,
     startEditGroceryItem: PropTypes.func,
     stopEditGroceryItem: PropTypes.func,
+    deleteGroceryItem: PropTypes.func,
+    toggleCheckGroceryItem: PropTypes.func,
   };
 
   static defaultProps = {
