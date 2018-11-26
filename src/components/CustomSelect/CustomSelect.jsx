@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const CustomSelectContainer = styled.div`
@@ -53,5 +55,23 @@ const CustomSelect = ({ options, selectMe, toggleSelectOpen, isOpened, selected,
     </OptionsList>
   </CustomSelectContainer>
 );
+
+CustomSelect.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      display: PropTypes.string,
+      isDefault: PropTypes.bool,
+    }),
+  ),
+  selectMe: PropTypes.func.isRequired,
+  toggleSelectOpen: PropTypes.func,
+  isOpened: PropTypes.bool,
+  selected: PropTypes.shape({
+    value: PropTypes.string,
+    display: PropTypes.string,
+    isDefault: PropTypes.bool,
+  }),
+};
 
 export default CustomSelect;
